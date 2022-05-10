@@ -19,8 +19,12 @@ namespace EntityLayer.Concrete
         public string UserMail { get; set; }
         [StringLength(100)]
         public string UserPassword { get; set; }
-        [StringLength(100)]
+        [StringLength(500)]
         public string UserPhoto { get; set; }
+
+        public bool UserStatus { get; set; }
+
+        public bool UserActive { get; set; }
 
         public ICollection<Content> Contents { get; set; }
 

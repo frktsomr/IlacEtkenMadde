@@ -14,6 +14,7 @@ namespace BitirmeCalismasi.Controllers
     public class UserController : Controller
     {
         UserManager um = new UserManager(new EfUserDal());
+        UserValidator uservalidator = new UserValidator();
         public ActionResult Index()
         {
             var UserValues = um.GetList();
@@ -29,11 +30,36 @@ namespace BitirmeCalismasi.Controllers
         [HttpPost]
         public ActionResult AddUser(User user )
         {
-            UserValidator uservalidator = new UserValidator();
             ValidationResult result = uservalidator.Validate(user);
             if(result.IsValid)
             {
                 um.UserAdd(user);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult EditUser(int id)
+        {
+            var uservalue = um.GetByID(id);
+            return View(uservalue);
+        }
+
+        [HttpPost]
+        public ActionResult EditUser(User user)
+        {
+            ValidationResult result = uservalidator.Validate(user);
+            if (result.IsValid)
+            {
+                um.UserUptade(user);
                 return RedirectToAction("Index");
             }
             else

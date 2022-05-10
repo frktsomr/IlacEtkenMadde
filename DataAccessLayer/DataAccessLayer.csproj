@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAboutDal.cs" />
     <Compile Include="Abstract\IActiveIngredientDal.cs" />
     <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
@@ -72,6 +73,42 @@
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
     <Compile Include="EntityFramework\EfMedicineDal.cs" />
     <Compile Include="EntityFramework\EfUserDal.cs" />
+    <Compile Include="Migrations\202205071651291_mg1.cs" />
+    <Compile Include="Migrations\202205071651291_mg1.designer.cs">
+      <DependentUpon>202205071651291_mg1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205092045158_mig_imagesizechange.cs" />
+    <Compile Include="Migrations\202205092045158_mig_imagesizechange.designer.cs">
+      <DependentUpon>202205092045158_mig_imagesizechange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205092055489_mig_imagesizechange1.cs" />
+    <Compile Include="Migrations\202205092055489_mig_imagesizechange1.designer.cs">
+      <DependentUpon>202205092055489_mig_imagesizechange1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205092113305_mig_addUserActive.cs" />
+    <Compile Include="Migrations\202205092113305_mig_addUserActive.designer.cs">
+      <DependentUpon>202205092113305_mig_addUserActive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205092201020_deneme2.cs" />
+    <Compile Include="Migrations\202205092201020_deneme2.designer.cs">
+      <DependentUpon>202205092201020_deneme2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205092201551_deneme3.cs" />
+    <Compile Include="Migrations\202205092201551_deneme3.designer.cs">
+      <DependentUpon>202205092201551_deneme3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205092206323_AddEntity.cs" />
+    <Compile Include="Migrations\202205092206323_AddEntity.designer.cs">
+      <DependentUpon>202205092206323_AddEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205092314258_ContentStatusAdd.cs" />
+    <Compile Include="Migrations\202205092314258_ContentStatusAdd.designer.cs">
+      <DependentUpon>202205092314258_ContentStatusAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205092316496_HeadingStatusAdd.cs" />
+    <Compile Include="Migrations\202205092316496_HeadingStatusAdd.designer.cs">
+      <DependentUpon>202205092316496_HeadingStatusAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,7 +122,35 @@
       <Name>EntityLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202205071651291_mg1.resx">
+      <DependentUpon>202205071651291_mg1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205092045158_mig_imagesizechange.resx">
+      <DependentUpon>202205092045158_mig_imagesizechange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205092055489_mig_imagesizechange1.resx">
+      <DependentUpon>202205092055489_mig_imagesizechange1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205092113305_mig_addUserActive.resx">
+      <DependentUpon>202205092113305_mig_addUserActive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205092201020_deneme2.resx">
+      <DependentUpon>202205092201020_deneme2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205092201551_deneme3.resx">
+      <DependentUpon>202205092201551_deneme3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205092206323_AddEntity.resx">
+      <DependentUpon>202205092206323_AddEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205092314258_ContentStatusAdd.resx">
+      <DependentUpon>202205092314258_ContentStatusAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205092316496_HeadingStatusAdd.resx">
+      <DependentUpon>202205092316496_HeadingStatusAdd.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
