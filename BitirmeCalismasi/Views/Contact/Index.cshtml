@@ -1,10 +1,10 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<Contact>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
 
 <!DOCTYPE html>
 <html>
@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Mesaj Sayfası</h1>
+                    <!-- <h1>Mesaj Sayfası</h1>-->
                 </div>
 
             </div>
@@ -149,6 +149,8 @@
                         <div class="table-responsive mailbox-messages">
                             <table class="table table-hover table-striped">
                                 <tbody>
+                                    @foreach (var item in Model)
+                                    {
                                     <tr>
                                         <td>
                                             <div class="icheck-primary">
@@ -157,13 +159,14 @@
                                             </div>
                                         </td>
                                         <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                        <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.ContactID">@item.User.UserName</a></td>
                                         <td class="mailbox-subject">
-                                            <b>AdminLTE 3.0 Issue</b> - Trying to find a solution to this problem...
+                                            <b>@item.ContactSubject</b> @item.ContactMessage.Substring(0,30)...
                                         </td>
                                         <td class="mailbox-attachment"></td>
-                                        <td class="mailbox-date">5 mins ago</td>
+                                        <td class="mailbox-date">5 minutes ago</td>
                                     </tr>
+                                    }
                                 </tbody>
                             </table>
                             <!-- /.table -->

@@ -55,6 +55,7 @@
     <Compile Include="Abstract\IActiveIngredientDal.cs" />
     <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
     <Compile Include="Abstract\IMedicineDal.cs" />
@@ -109,6 +110,10 @@
     <Compile Include="Migrations\202205092316496_HeadingStatusAdd.designer.cs">
       <DependentUpon>202205092316496_HeadingStatusAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205111128342_mig_1.cs" />
+    <Compile Include="Migrations\202205111128342_mig_1.designer.cs">
+      <DependentUpon>202205111128342_mig_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -149,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205092316496_HeadingStatusAdd.resx">
       <DependentUpon>202205092316496_HeadingStatusAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205111128342_mig_1.resx">
+      <DependentUpon>202205111128342_mig_1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

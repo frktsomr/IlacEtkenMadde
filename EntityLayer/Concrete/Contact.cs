@@ -14,13 +14,13 @@ namespace EntityLayer.Concrete
         [StringLength(500)]
         public string ContactMessage { get; set; }
         [StringLength(500)]
-        public string ContactHeading { get; set; }
-        [StringLength(500)]
-        public string ContactDegree { get; set; }
+        public string ContactSubject { get; set; }
+        
         [StringLength(500)]
         public string ContactSelfie { get; set; }
 
         public int UserID { get; set; }
+        public string UserMail { get; set; }
         public virtual User User { get; set; }
 
     }
