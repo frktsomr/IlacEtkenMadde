@@ -1,10 +1,32 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<About>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Hakkında Veri Listesi </h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Hakkımda Başlığı</th>
+        <th>Aktif Yap</th>
+        <th>Pasif Yap</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.AboutID</th>
+            <th>Başlık</th>
+            <th><a href="#" class="btn btn-warning">Aktif Yap</a></th>
+            <th><a href="#" class="btn btn-danger">Pasif Yap</a></th>
+        </tr>
+    }
+
+</table>
+
 
 <button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
     Yeni Hakkımızda Yazı Girişi
@@ -17,19 +39,16 @@
                 <h2 class="modal-title">Hakkımızda Metin Girişi</h2>
 
             </div>
-            <form method="post" action="#">
+            <form method="post" action="/About/AddAbout">
                 <div class="modal-body">
-                    <label>Hakkımda metin 1</label>
-                    <input type="text" name="#" class="form-control" />
-                    <br />
-                    <label>Hakkımda metin 2</label>
-                    <input type="text" name="#" class="form-control" />
+                    <label>Hakkımda metin</label>
+                    <input type="text" name="AboutDetails" class="form-control" />
                     <br />
                     <label>Hakkımda görsel 1</label>
-                    <input type="text" name="#" class="form-control" />
+                    <input type="text" name="AboutImage1" class="form-control" />
                     <br />
                     <label>Hakkımda görsel 2</label>
-                    <input type="text" name="#" class="form-control" />
+                    <input type="text" name="AboutImage2" class="form-control" />
                     <br />
                     <button class="btn btn-info">Kaydet</button>
                 </div>
