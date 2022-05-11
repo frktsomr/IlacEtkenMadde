@@ -114,6 +114,10 @@
     <Compile Include="Migrations\202205111128342_mig_1.designer.cs">
       <DependentUpon>202205111128342_mig_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205111616339_mig_addMeassages.cs" />
+    <Compile Include="Migrations\202205111616339_mig_addMeassages.designer.cs">
+      <DependentUpon>202205111616339_mig_addMeassages.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -157,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205111128342_mig_1.resx">
       <DependentUpon>202205111128342_mig_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205111616339_mig_addMeassages.resx">
+      <DependentUpon>202205111616339_mig_addMeassages.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

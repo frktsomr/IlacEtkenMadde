@@ -26,5 +26,9 @@ namespace BitirmeCalismasi.Controllers
             
             return View(contactvalues);
         }
+        public PartialViewResult MessageListMenu()
+        {
+            return PartialView();
+        }
     }
 }
