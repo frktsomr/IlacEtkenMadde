@@ -30,5 +30,10 @@ namespace BitirmeCalismasi.Controllers
             abm.AboutAddBL(about);
             return RedirectToAction("Index");
         }
+
+        public PartialViewResult AboutPartial()
+        {
+            return PartialView();
+        }
     }
 }
