@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,7 @@ namespace BitirmeCalismasi.Controllers
     public class MessageController : Controller
     {
         MessageManager mm = new MessageManager(new EfMessageDal());
+        MessageValidator messagevalidator = new MessageValidator(); 
         public ActionResult Inbox()
         {
             var messagelist = mm.GetListInbox();
@@ -22,6 +25,19 @@ namespace BitirmeCalismasi.Controllers
             var messagelist = mm.GetListSendbox();
             return View(messagelist);
         }
+        public ActionResult GetInBoxMessageDetails(int id)
+        {
+            var values = mm.GetByID(id);
+
+            return View(values);
+        }
+        public ActionResult GetSendBoxMessageDetails(int id)
+        {
+            var values = mm.GetByID(id);
+
+            return View(values);
+        }
+
         [HttpGet]
         public ActionResult NewMessage()
         {
@@ -31,6 +47,20 @@ namespace BitirmeCalismasi.Controllers
         [HttpPost]
         public ActionResult NewMessage(Message message)
         {
+            ValidationResult result = messagevalidator.Validate(message);
+            if (result.IsValid)
+            {
+                message.MessageDate =DateTime.Parse(DateTime.Now.ToShortDateString());
+                mm.MessageAddBL(message);
+                return RedirectToAction("Sendbox");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
             return View();
         }
     }
