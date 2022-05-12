@@ -30,6 +30,5 @@ namespace EntityLayer.Concrete
 
         public ICollection<Heading> Headings { get; set; }
 
-        public ICollection<Contact> Contacts { get; set; }
     }
 }
