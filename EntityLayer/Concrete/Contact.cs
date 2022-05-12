@@ -20,7 +20,8 @@ namespace EntityLayer.Concrete
         public string ContactSelfie { get; set; }
 
         public string UserMail { get; set; }
-        public string UserName { get; set; }
+        public int? UserID { get; set; }
+        public virtual User User { get; set; }
 
     }
 }
