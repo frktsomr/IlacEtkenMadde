@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace BitirmeCalismasi.Controllers
 {
@@ -24,6 +25,8 @@ namespace BitirmeCalismasi.Controllers
             x.AdminPassword==p.AdminPassword);
             if (adminuserinfo != null)
             {
+                FormsAuthentication.SetAuthCookie(adminuserinfo.AdminUserName, false);
+                Session["AdminUserName"] = adminuserinfo.AdminUserName;
                 return RedirectToAction("Index", "AdminCategory");
             }
             else

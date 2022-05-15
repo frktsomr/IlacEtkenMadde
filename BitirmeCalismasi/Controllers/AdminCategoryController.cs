@@ -14,7 +14,7 @@ namespace BitirmeCalismasi.Controllers
     public class AdminCategoryController : Controller
     {
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
-        [Authorize]
+       // [Authorize(Roles="B")] sadece o roldeki kişiler görebilir
         public ActionResult Index()
         {
             var CategoryValues = cm.GetList();
