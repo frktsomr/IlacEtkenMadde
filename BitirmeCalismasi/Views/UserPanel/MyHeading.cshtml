@@ -2,7 +2,7 @@
 @model List<Heading>
 @{
     ViewBag.Title = "MyHeading";
-    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
 
@@ -53,9 +53,7 @@
                             <th style="width: 15%">
                                 Yazar
                             </th>
-                            <th style="width: 10%">
-                                Durum
-                            </th>
+                           
                             <th style="width: 8%" class="text-center">
                                 Kategori
                             </th>
@@ -102,9 +100,7 @@
                                     </ul>
                                 </td>
 
-                                <td>
-                                    @item.HeadingStatus
-                                </td>
+                              
 
                                 <td class="project-state">
                                     <span class="@color">@item.Category.CategoryName</span>
@@ -115,7 +111,7 @@
                                         </i>
                                         Yazılar
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="/Heading/EditHeading/@item.HeadingID">
+                                    <a class="btn btn-info btn-sm" href="/UserPanel/EditHeading/@item.HeadingID">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Düzenle
@@ -140,6 +136,6 @@
 </body>
 </html>
 
-<a href="/Heading/AddHeading/" class="btn btn-primary">Yeni Başlık</a>
+<a href="/UserPanel/NewHeading/" class="btn btn-primary">Yeni Başlık</a>
 
 

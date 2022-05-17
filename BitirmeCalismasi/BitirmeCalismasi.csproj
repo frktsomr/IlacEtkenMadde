@@ -143,7 +143,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\WriterPanelController.cs" />
+    <Compile Include="Controllers\UserPanelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2417,9 +2417,11 @@
     <Content Include="Views\Message\GetSendBoxMessageDetails.cshtml" />
     <Content Include="Views\ErrorPage\Page404.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Shared\_WriterLayout.cshtml" />
-    <Content Include="Views\WriterPanel\WriterProfile.cshtml" />
-    <Content Include="Views\WriterPanel\MyHeading.cshtml" />
+    <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\UserPanel\UserProfile.cshtml" />
+    <Content Include="Views\UserPanel\MyHeading.cshtml" />
+    <Content Include="Views\UserPanel\NewHeading.cshtml" />
+    <Content Include="Views\UserPanel\EditHeading.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
