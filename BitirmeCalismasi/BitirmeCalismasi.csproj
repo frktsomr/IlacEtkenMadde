@@ -144,6 +144,7 @@
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserPanelController.cs" />
+    <Compile Include="Controllers\UserPanelMessageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2422,6 +2423,9 @@
     <Content Include="Views\UserPanel\MyHeading.cshtml" />
     <Content Include="Views\UserPanel\NewHeading.cshtml" />
     <Content Include="Views\UserPanel\EditHeading.cshtml" />
+    <Content Include="Views\UserPanelMessage\Inbox.cshtml" />
+    <Content Include="Views\UserPanelMessage\MessageListMenu.cshtml" />
+    <Content Include="Views\UserPanelMessage\Sendbox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
