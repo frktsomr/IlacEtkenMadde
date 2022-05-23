@@ -9,6 +9,7 @@ using System.Web.Security;
 
 namespace BitirmeCalismasi.Controllers
 {
+    [AllowAnonymous]
     public class AdminController : Controller
     {
         // GET: Admin
@@ -33,7 +34,35 @@ namespace BitirmeCalismasi.Controllers
             {
                 return RedirectToAction("Index");
             }
+        }
+
+        [HttpGet]
+        public ActionResult UserLogin()
+        {
             return View();
         }
+        [HttpPost]
+        public ActionResult UserLogin(User user)
+        {
+            Context c = new Context();
+            var userinfo = c.Users.FirstOrDefault(x => x.UserMail == user.UserMail &&
+            x.UserPassword == user.UserPassword);
+            if (userinfo != null)
+            {
+                FormsAuthentication.SetAuthCookie(userinfo.UserMail, false);
+                Session["UserMail"] = userinfo.UserMail;
+                return RedirectToAction("MyContent", "UserPanelContent");
+            }
+            else
+            {
+                return RedirectToAction("UserLogin");
+            }
+        }
+            public ActionResult LogOut()
+            {
+                FormsAuthentication.SignOut();
+                Session.Abandon();
+                return RedirectToAction("Headings", "Default");
+            }
+        }
     }
-}

@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -14,19 +15,26 @@ namespace BitirmeCalismasi.Controllers
         // GET: WriterPanel
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        Context c = new Context();
+        int id;
+
         public ActionResult UserProfile()
         {
             return View();
         }
-        public ActionResult MyHeading()
+        public ActionResult MyHeading(string p)
         {
-         
-            var values = hm.GetListByUser();
+           
+            p = (string)Session["UserMail"];
+            var useridinfo = c.Users.Where(x => x.UserMail == p).Select(y => y.UserID).FirstOrDefault();
+            id = useridinfo;
+            var values = hm.GetListByUser(useridinfo);
             return View(values);
         }
         [HttpGet]
         public ActionResult NewHeading()
         {
+            
             List<SelectListItem> valuecategory = (from x in cm.GetList()
                                                   select new SelectListItem
                                                   {
@@ -39,8 +47,10 @@ namespace BitirmeCalismasi.Controllers
         [HttpPost]
         public ActionResult NewHeading(Heading heading)
         {
+            string usermailinfo = (string)Session["UserMail"];
+            var useridinfo = c.Users.Where(x => x.UserMail == usermailinfo).Select(y => y.UserID).FirstOrDefault();
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            heading.UserID =2;
+            heading.UserID = useridinfo;
             heading.HeadingStatus = true;
             hm.HeadingAddBL(heading);
 
@@ -73,6 +83,12 @@ namespace BitirmeCalismasi.Controllers
             HeadingValue.HeadingStatus = false;
             hm.HeadingDelete(HeadingValue);
             return RedirectToAction("MyHeading");
+        }
+
+        public ActionResult AllHeading()
+        {
+            var headings = hm.GetList();
+            return View(headings);
         }
     }
 }
