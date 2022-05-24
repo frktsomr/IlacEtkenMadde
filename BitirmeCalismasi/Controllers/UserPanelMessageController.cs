@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -15,16 +16,19 @@ namespace BitirmeCalismasi.Controllers
     {
         MessageManager mm = new MessageManager(new EfMessageDal());
         MessageValidator messagevalidator = new MessageValidator();
-
+      
         // GET: UserPanelMessage
         public ActionResult Inbox()
         {
-            var messagelist = mm.GetListInbox();
+            string  p = (string)Session["UserMail"];
+            
+            var messagelist = mm.GetListInbox(p);
             return View(messagelist);
         }
         public ActionResult Sendbox()
         {
-            var messagelist = mm.GetListSendbox();
+            string p = (string)Session["UserMail"];
+            var messagelist = mm.GetListSendbox(p);
             return View(messagelist);
         }
         public PartialViewResult MessageListMenu()
@@ -55,10 +59,11 @@ namespace BitirmeCalismasi.Controllers
         [HttpPost]
         public ActionResult NewMessage(Message message)
         {
+            string sender = (string)Session["UserMail"];
             ValidationResult result = messagevalidator.Validate(message);
             if (result.IsValid)
             {
-                message.SenderMail = "yaren.sarac9@gmail.com";
+                message.SenderMail = sender;
                 message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 mm.MessageAddBL(message);
                 return RedirectToAction("Sendbox");
