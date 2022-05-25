@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,7 @@ namespace BitirmeCalismasi.Controllers
     [AllowAnonymous]
     public class AdminController : Controller
     {
+        UserLoginManager wm = new UserLoginManager(new EfUserDal());
         // GET: Admin
         [HttpGet]
         public ActionResult Index()
@@ -44,9 +47,10 @@ namespace BitirmeCalismasi.Controllers
         [HttpPost]
         public ActionResult UserLogin(User user)
         {
-            Context c = new Context();
-            var userinfo = c.Users.FirstOrDefault(x => x.UserMail == user.UserMail &&
-            x.UserPassword == user.UserPassword);
+            //Context c = new Context();
+            //var userinfo = c.Users.FirstOrDefault(x => x.UserMail == user.UserMail &&
+            //x.UserPassword == user.UserPassword);
+            var userinfo = wm.GetUser(user.UserMail, user.UserPassword);
             if (userinfo != null)
             {
                 FormsAuthentication.SetAuthCookie(userinfo.UserMail, false);
