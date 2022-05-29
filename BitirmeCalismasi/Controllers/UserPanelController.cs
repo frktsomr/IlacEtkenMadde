@@ -116,7 +116,7 @@ namespace BitirmeCalismasi.Controllers
 
         public ActionResult AllHeading(int p=1)
         {
-            var headings = hm.GetList().ToPagedList(p, 2);
+            var headings = hm.GetList().ToPagedList(p, 8);
             return View(headings);
         }
     }
