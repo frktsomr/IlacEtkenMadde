@@ -52,8 +52,9 @@ namespace BitirmeCalismasi.Controllers
 
         public ActionResult DeleteCategory(int id)
         {
-            var categoryvalue = cm.GetByID(id);
-            cm.CategoryDelete(categoryvalue);
+            var categoryValue = cm.GetByID(id);
+            categoryValue.CategoryStatus = true;
+            cm.CategoryDelete(categoryValue);
             return RedirectToAction("Index");
         }
 

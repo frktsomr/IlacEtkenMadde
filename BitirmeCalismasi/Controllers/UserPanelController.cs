@@ -40,7 +40,7 @@ namespace BitirmeCalismasi.Controllers
             if (result.IsValid)
             {
                 um.UserUptade(user);
-                return RedirectToAction("AllHeading","UserPanel");
+                return RedirectToAction("UserProfile","UserPanel");
             }
             else
             {

@@ -59,7 +59,9 @@ namespace BitirmeCalismasi.Controllers
             ValidationResult result = uservalidator.Validate(user);
             if (result.IsValid)
             {
+                user.UserStatus = true;
                 um.UserUptade(user);
+                
                 return RedirectToAction("Index");
             }
             else

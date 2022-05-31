@@ -4,12 +4,12 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-<h2>Profilinizi Düzenleyin</h2>
+
 
 @using (Html.BeginForm("UserProfile", "UserPanel", FormMethod.Post))
 {
 <div class="form-group">
-    @Html.Label("Kullanıcı ID")
+  
     @Html.HiddenFor(x => x.UserID, new { @class = "form-control" })
   
     <br />

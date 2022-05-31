@@ -78,7 +78,8 @@
                                 color = "badge badge-info";
 
                             }
-
+                            if (@item.HeadingStatus == true)
+                            {
                             <tr>
                                 <td>
                                     @item.HeadingID
@@ -126,6 +127,7 @@
                                     </a>
                                 </td>
                             </tr>
+                            }
                         }
                     </tbody>
                 </table>
@@ -138,7 +140,7 @@
 </body>
 </html>
 
-<a href="/Heading/AddHeading/" class="btn btn-primary">Yeni Başlık</a>
+@*<a href="/Heading/AddHeading/" class="btn btn-primary">Yeni Başlık</a>*@
 
 @*<h2>Index</h2>
     <br />

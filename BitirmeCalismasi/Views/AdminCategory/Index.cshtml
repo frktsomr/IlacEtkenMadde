@@ -7,26 +7,29 @@
 }
 
 <br />
-
 <table class="table table-bordered">
     <tr>
         <th>ID</th>
         <th>Kategori Ad</th>
-        <th>Durum</th>
+       
         <th>Sil</th>
         <th>Güncelle</th>
-        <th>Başlıklar</th>
+     
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.CategoryID</td>
-            <td>@item.CategoryName</td>
-            <td>@item.CategoryStatus</td>
-            <td><a href="/AdminCategory/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a></td>
-            <td><a href="/AdminCategory/EditCategory/@item.CategoryID" class="btn btn-warning">Güncelle</a></td>
-            <td><a href="#" class="btn btn-warning">Başlıklar</a></td>
-        </tr>
+        if (@item.CategoryStatus == false)
+        {
+            <tr>
+                <td>@item.CategoryID</td>
+                <td>@item.CategoryName</td>
+                
+                <td><a href="/AdminCategory/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a></td>
+                <td><a href="/AdminCategory/EditCategory/@item.CategoryID" class="btn btn-warning">Güncelle</a></td>
+               
+            </tr>
+        }
+
     }
 </table>
 <br />
