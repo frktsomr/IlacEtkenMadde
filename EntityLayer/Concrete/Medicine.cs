@@ -20,8 +20,6 @@ namespace EntityLayer.Concrete
         [StringLength(1500)]
         public string MedicineUsage { get; set; }
 
-        public int CategoryID { get; set; }
-        public virtual Category Category { get; set; }
 
         public int ActiveIngredientID { get; set; }
         public virtual ActiveIngredient ActiveIngredient { get; set; }

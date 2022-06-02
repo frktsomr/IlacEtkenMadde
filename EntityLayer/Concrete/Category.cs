@@ -18,7 +18,6 @@ namespace EntityLayer.Concrete
         public string CategoryDescription { get; set; }
         public bool CategoryStatus { get; set; }
 
-        public ICollection<Medicine> Medicines { get; set; }
         public ICollection<Heading> Headings { get; set; }
     }
 }
