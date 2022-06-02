@@ -28,11 +28,16 @@ namespace BitirmeCalismasi.Controllers
         }
 
 
-
         public ActionResult ContentByHeading(int id)
         {
             var contentvalues = cm.GetListByHeadingID(id);
             return View(contentvalues);
         } 
+
+        public ActionResult ContentByHeadingAdmin(int id)
+        {
+            var contentvalues = cm.GetListByHeadingID(id);
+            return View(contentvalues);
+        }
     }
 }

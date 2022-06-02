@@ -66,6 +66,7 @@ namespace BitirmeCalismasi.Controllers
         [HttpPost]
         public ActionResult EditHeading(Heading heading)
         {
+            heading.HeadingStatus = true;
             hm.HeadingUpdate(heading);
             return RedirectToAction("Index");
         }
