@@ -2052,6 +2052,7 @@
     <Content Include="AdminLTE-3.0.4\web\images\g7.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\g8.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\g9.jpg" />
+    <Content Include="AdminLTE-3.0.4\web\images\ilac.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\loader.gif" />
     <Content Include="AdminLTE-3.0.4\web\images\move_up.png" />
     <Content Include="AdminLTE-3.0.4\web\images\next.png" />
