@@ -149,6 +149,7 @@
     <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MedicineController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserPanelContentController.cs" />
@@ -2038,6 +2039,7 @@
     <Content Include="AdminLTE-3.0.4\web\css\snow.css" />
     <Content Include="AdminLTE-3.0.4\web\css\style.css" />
     <Content Include="AdminLTE-3.0.4\web\images\banner.jpg" />
+    <Content Include="AdminLTE-3.0.4\web\images\Cat03.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\close.png" />
     <Content Include="AdminLTE-3.0.4\web\images\contact.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\exp.jpg" />
@@ -2053,6 +2055,7 @@
     <Content Include="AdminLTE-3.0.4\web\images\loader.gif" />
     <Content Include="AdminLTE-3.0.4\web\images\move_up.png" />
     <Content Include="AdminLTE-3.0.4\web\images\next.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\pharmacy.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\prev.png" />
     <Content Include="AdminLTE-3.0.4\web\images\serve.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\stats.jpg" />
@@ -2620,6 +2623,8 @@
     <Content Include="Views\Authorization\AddAdmin.cshtml" />
     <Content Include="Views\Authorization\EditAdmin.cshtml" />
     <Content Include="Views\Content\ContentByHeadingAdmin.cshtml" />
+    <Content Include="Views\Medicine\IlacKarsilastir.cshtml" />
+    <Content Include="Views\Medicine\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,70 @@
+﻿@model EntityLayer.Concrete.Medicine
+@{
+    ViewBag.Title = "IlacKarsilastir";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>IlacKarsilastir</h2>
+
+
+<body>
+    <form id="myForm" method="post" enctype="multipart/form-data" asp-controller="Medicine" asp-action="İlacKarsilastir">
+        <table>
+            <tr>
+                <td>First Name: </td>
+                <td><input type="text" id="txtFirstName" /></td>
+            </tr>
+            <tr>
+                <td>Last Name: </td>
+                <td><input type="text" id="txtLastName" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" value="Submit" onclick="AjaxFormSubmit()" /></td>
+            </tr>
+        </table>
+        <hr />
+        @*<span id="lblName"></span>*@
+        @*@if (ViewBag.d == 1)
+        {
+            <div>İlaç kullanabilirsin.</div>
+
+        }
+        else if(ViewBag.d == 2)
+        {
+            <div>İlaç kullanma.</div>
+        }*@
+
+        @{var Tempdata = TempData["Veri"];}
+        <div>@Tempdata</div>
+
+    </form>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        function AjaxFormSubmit() {
+            //Set the URL.
+            //var url = $("#myForm").attr("action");
+
+            //Add the Field values to FormData object.
+            var formData = new FormData();
+            formData.append("ilac1", $("#txtFirstName").val());
+            formData.append("ilac2", $("#txtLastName").val());
+
+            $.ajax({
+                type: 'POST',
+                url: '/Medicine/IlacKarsilastir',
+                data: formData,
+                processData: false,
+                contentType: false
+            }).done(function (response) {
+                debugger
+                if (response.Status === "success") {
+                    $("#lblName").html("İlacı kullanabilirsin");
+                } else {
+                    $("#lblName").html("İlacı kullanma");
+                }
+            });
+        }
+    </script>
+</body>
+

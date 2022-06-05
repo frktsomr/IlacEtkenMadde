@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.Abstract
+namespace BusinessLayer.Abstract
 {
-    public interface IMedicineDal : IRepository<Medicine>
+    public interface IMedicineService
     {
-
+        List<Medicine> GetList();
+        
     }
 }
